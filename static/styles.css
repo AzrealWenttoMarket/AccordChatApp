@@ -1,0 +1,440 @@
+body{
+    margin: 0;
+}
+
+html{
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.container{
+    display: flex;
+}
+
+
+/* MIDDLE BOX  */
+#middle-box{
+    height: 100vh;
+    width: 250px;
+
+    background-color: #FFFDF6;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #A3A3A3;
+    align-items: left;
+}
+
+#middle-box #search-convo{
+    padding: 15px;
+
+    border-bottom: 1px solid #A3A3A3 ;
+
+    margin-bottom: 10px;
+}
+
+#middle-box #search-convo input{
+    background-color: #FFFDF6;
+    width: 210px;
+    border: 1px solid #A3A3A3;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+#direct-messages{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 210px;
+    height: 20px;
+
+    padding-top: 20px;
+}
+
+#direct-messages a{
+    text-decoration: none ;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+#direct-messages :last-child{
+    font-size: 16px;
+    font-weight: bold;
+    color: #D4D5D6;
+}
+
+
+
+#conversations{
+    padding-top: 20px;
+    flex: 1;
+    
+}
+
+#Profile1 img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 5px;
+}
+
+#Profile1{
+    margin-left: 5px;
+}
+
+#Profile2 img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 5px;
+}
+
+#Profile2{
+    margin-left: 5px;
+}
+
+#Profile3 img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+#Profile3{
+    margin-left: 5px;
+}
+
+#conversations :first-child{
+    background-color: #FFFDF6;
+}
+
+#conversations :first-child a{
+    color: #fff;
+}
+
+.convo{
+    flex: 1;
+    width: 230px;
+    height: 40px;
+
+    border-radius: 5px;
+   
+    margin-bottom: 2px;
+
+    display: flex;
+    align-items: center;
+ 
+}
+
+.convo img{
+    height: 32px ;
+    width: 32px;
+    border-radius: 50%;
+    
+    margin-left: 5px;
+}
+
+.convo a {
+    color: #8e9297;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+
+.convo:hover{
+    background-color: #FFFDF6;
+    border-radius: 5px;
+}
+
+#status{
+    height: 50px;
+    width: 250px;
+    
+    background-color: #FFFDF6;
+    border-width: 1px;
+    border-color: #A3A3A3;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.content-status{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    flex: 1; /* pegar todo o espaço dispinível no */
+}
+
+.content-status img{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+}
+
+#name-id{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    
+    width: 45%;
+}
+
+#name-id :first-child{
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#name-id :last-child{
+    color:#b9bbbe;
+    font-size: 12px;
+}
+
+.content-status #icons img{
+    height: 20px;
+    width: 20px;
+}
+
+#icons{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+}
+
+.icon:hover{
+    background-color: #34373C;
+    border-radius: 5px;
+}
+
+/* MAIN MENSAGENS*/
+#main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar{
+    padding: 15px;
+    background-color:#36393F;
+    
+    border-bottom: 1px solid #202225 ;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#name-convo{
+    display: flex;
+    align-items: center;
+
+    position: static;
+}
+
+#name-convo a{
+    padding-left: 8px;
+    padding-right: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#buttons-bar{
+   flex: 1;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: relative;
+}
+
+#buttons-bar img{
+    padding-left: 7px;
+    padding-right: 7px;
+
+    height: 25px;
+    width: 25px;
+}
+
+#buttons-bar :nth-child(4){
+    padding-right: 15px;
+}
+
+#buttons-bar :nth-child(6){
+    padding-left: 15px;
+}
+
+#buttons-bar input{
+    background-color: #202225;
+    border: none;
+    border-radius: 5px;
+    
+    width: 120px;
+    padding: 5px;
+}
+
+/* CONTENT */
+.content{
+    flex: 1;
+    background-color:#36393F;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding-left: 15px;
+    padding-top: 200px;
+
+    margin-bottom: 0px;
+}
+
+
+#profile{
+    display: flex;
+    flex-direction: column;
+    
+    padding-bottom: 10px;
+
+}
+
+#profile img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+#profile :nth-child(2){
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#profile :nth-child(3){
+    
+    color: #b9bbbe;
+    font-size: 16px;
+}
+
+#risco{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#risco hr{
+    border: 1px solid #72767D;
+    width: 42%;
+    
+}
+
+#risco a{
+    color: #72767D;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+#messages{
+    display: flex;
+   
+}
+
+#messages img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#column-message{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+#name-date-message{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#name-date-message :first-child{
+    padding-right: 10px;
+   
+    color: #fff;
+    font-weight: bold;
+}
+
+#name-date-message :last-child{
+    color: #6A6E75;
+    font-size: 12px;
+}
+
+#message-send a{
+    color: #dcddde;
+}
+
+#send-message{
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+    display: flex;
+    align-items: center;
+
+    padding-right: 5px;
+    padding-left: 5px;
+    
+}
+
+#send-message img{
+    height: 26px;
+    width: 25px;
+
+    padding: 11px;
+
+    background-color: #40444B;
+}
+
+#send-message :first-child{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#send-message :last-child{
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px ;
+}
+
+
+#send-message input{
+    height: 32px;
+    width: 85%;
+    padding: 8px;
+    background-color: #40444B;
+    border: none;
+}
+
+#send-message input::placeholder{
+    font-size: 14px;
+}

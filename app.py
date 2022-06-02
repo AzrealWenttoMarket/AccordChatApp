@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "secretkey"
 Socketio = SocketIO(app)
 
-#app routes
+# App Routes
 
 @app.route("/")
 def index():
@@ -83,6 +83,8 @@ def logout():
     session.clear()
     return redirect(url_for("login"))
 
+
+# Event Listeners
 
 @Socketio.on("broadcast message")
 def message_display(data):

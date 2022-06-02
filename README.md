@@ -1,2 +1,2 @@
 # AccordChatApp
-Accord, a new Era of chat application
+Accord, a new type of chat application

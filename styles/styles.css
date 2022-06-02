@@ -21,7 +21,7 @@ html{
     display: flex;
     flex-direction: column;
     border-right: 1px solid #A3A3A3;
-    align-items: center;
+    align-items: left;
 }
 
 #middle-box #search-convo{
@@ -74,8 +74,42 @@ html{
     
 }
 
+#Profile1 img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 5px;
+}
+
+#Profile1{
+    margin-left: 5px;
+}
+
+#Profile2 img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 5px;
+}
+
+#Profile2{
+    margin-left: 5px;
+}
+
+#Profile3 img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+#Profile3{
+    margin-left: 5px;
+}
+
 #conversations :first-child{
-    background-color: #393C43;
+    background-color: #FFFDF6;
 }
 
 #conversations :first-child a{
@@ -112,16 +146,21 @@ html{
 
 
 .convo:hover{
-    background-color: #34373C;
+    background-color: #FFFDF6;
     border-radius: 5px;
 }
 
 #status{
     height: 50px;
-    width: 100%;
+    width: 250px;
     
-    background-color: #292B2F;
+    background-color: #FFFDF6;
+    border-width: 1px;
+    border-color: #A3A3A3;
 
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .content-status{

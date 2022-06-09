@@ -295,13 +295,13 @@ html{
 /* CONTENT */
 .content{
     flex: 1;
-    background-color:#36393F;
+    background-color:#FFFDF6;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 
     padding-left: 15px;
-    padding-top: 200px;
+    padding-top: 300px;
 
     margin-bottom: 0px;
 }
@@ -382,7 +382,7 @@ html{
 #name-date-message :first-child{
     padding-right: 10px;
    
-    color: #fff;
+    color: black;
     font-weight: bold;
 }
 
@@ -416,6 +416,12 @@ html{
     background-color: #40444B;
 }
 
+#send-message button{
+    height: 52px;
+    width: 3%;
+    background-color: #FFFDF6;
+}
+
 #send-message :first-child{
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -431,8 +437,7 @@ html{
     height: 32px;
     width: 85%;
     padding: 8px;
-    background-color: #40444B;
-    border: none;
+    background-color: #FFFDF6;
 }
 
 #send-message input::placeholder{

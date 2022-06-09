@@ -65,9 +65,26 @@
         <div id="main">
             <div class="top-bar">
                 <div id="conversationBar">
-                    <img src="./" alt="">
+                    <img src="./" alt="icon">
                     <a href=""> MEEP</a>
-                    <img src="./" alt="">
+                    <img src="./" alt="icon">
+                    {% if session["user_id"] %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                {% endif %}
+                {% if session["user_id"] %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                {% endif %}
+              </ul>
+              {% if not session["user_id"] %}
+                <span class="navbar-text">
+                    <a href="/register">Register</a>
+                    <a href="/login">Login</a>
+                </span>
+              {% endif %}
                 </div>
             </div>
 
@@ -96,16 +113,25 @@
                         </div>
                         <div id="message-sent">
                             <a>Hello my friend!</a>
+                            <br>
+                            <a>Hello my friend!</a>
+                            <br>
+                            <a>Hello my friend!</a>
+                            <br>
+                            <a>Hello my friend!</a>
+                            <br>
+                            <a>Hello my friend!</a>
                         </div>
                     </div>
                 </div>
 
                <div id="send-message">
                    <img src="../static/assets/plus-256x256.png" alt="">
-                   <input type="text" placeholder="Conversation with @MEEP">
+                   <input type="text" id="message" placeholder="Conversation with @MEEP">
+                   <button type="submit" id="sendMessageButton">></button>
+                   <!--<img src="./" alt="">
                    <img src="./" alt="">
-                   <img src="./" alt="">
-                   <img src="./" alt="">
+                   <img src="./" alt="">-->
 
                </div>
             </div>

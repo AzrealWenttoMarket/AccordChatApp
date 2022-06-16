@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_socketio import SocketIO, emit
 from werkzeug.security import check_password_hash, generate_password_hash
-
+from helper import *
 #importing SQLITE3 for database
 import sqlite3
 conn = sqlite3.connect("db.sqlite3", check_same_thread=False)
@@ -14,9 +14,16 @@ Socketio = SocketIO(app)
 
 # App Routes
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+@app.route("/room/<string:room_id>")
+def index(room_id):
+    room = c.execute("SELECT * FROM rooms WHERE room_id=:r_id",{"r_id": room_id})
+
+    if len(room) == 0:
+        return "Room not found"
+    if room[0][3] == "private":
+        return "private"
+    messages = c.execute("SELECT * FROM messages WHERE room_id=:r_id", {r_id}: room_id)
+    return render_template("index.html", messages=messages)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -34,6 +41,7 @@ def register():
 
             if len(exist) != 0:
                 return "user already registered"
+
 
             # hash the password
             pwhash = generate_password_hash(request.form.get("password"), method="pbkdf2:sha256", salt_length=8)
@@ -72,7 +80,7 @@ def login():
         session["user_id"] = user[0][0]
 
         # return success
-        return redirect("/dashboard")
+        return redirect("/")
 
     else:
         return render_template("login.html")
@@ -84,6 +92,20 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/create-room", methods=["GET", "POST"])
+@login_required
+def create_room():
+    if request.method == "POST":
+        while True:
+            room_id = random_str()
+            rooms = c.execute("SELECT * FROM rooms, WHERE room_id=:r_id", {"r_id": room_id}).fetchall()
+            if len(rooms) == 0:
+                c.execute("INSERT INTO rooms (room_id, name, description,rstatus) VALUES (:r_id, :name, :desc, :rstatus)",{"r_id": room_id, name: request.form.get("name"), "desc": request.form.get("description"), "rstatus": request.form.get("rstatus")})
+                conn.commit()
+                break
+            return redirect(f"/room/{room_id}")
+    else:
+        return render_template("create-room.html")
 # Event Listeners
 
 @Socketio.on("broadcast message")

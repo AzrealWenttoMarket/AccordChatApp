@@ -104,6 +104,7 @@
                 </div>
 
                 <div id="messages">
+                    {% for m in messages %}
                     <img src="../static/assets/azProfile.png" alt="">
                     
                     <div id="column-message">
@@ -112,17 +113,10 @@
                             <a> DD/MM/YYYY</a>
                         </div>
                         <div id="message-sent">
-                            <a>Hello my friend!</a>
-                            <br>
-                            <a>Hello my friend!</a>
-                            <br>
-                            <a>Hello my friend!</a>
-                            <br>
-                            <a>Hello my friend!</a>
-                            <br>
-                            <a>Hello my friend!</a>
+                            <li>{{ m[1] }} - {{ m[2] }}</li>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
 
                <div id="send-message">

@@ -169,7 +169,7 @@ html{
     flex-direction: row;
     align-items: center;
   
-    flex: 1; /* pegar todo o espaço dispinível no */
+    flex: 1;
 }
 
 .content-status img{
@@ -223,7 +223,7 @@ html{
     border-radius: 5px;
 }
 
-/* MAIN MENSAGENS*/
+/* MAIN MESSAGES*/
 #main{
     flex: 1;
     display: flex;

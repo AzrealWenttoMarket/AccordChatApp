@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+
+        <div id="middle-box">
+            <div id="search-convo">
+                <form action="/" method="GET">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Search For a Public Room"></input>
+                    </div>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <div id="direct-messages">
+                <a> Chatrooms</a>
+                <a href="/create-room"> + </a>
+            </div>
+            <br>
+            <div id="Conversations">
+                {% for joinedChat in joinedChats %}
+                        <li><a href="/room/{{ joinedChat[0] }}">{{ joinedChat[1] }} - {{ joinedChat[2] }}</a></li>
+                    {% endfor %}
+            </div>
+
+            <div id="status">
+                <div class="content-status">
+                    <img src="../static/assets/azProfile.png" alt="ProfilePhoto">
+
+                    <div id="name-id">
+                        {% for loggedIns in loggedIn %}
+                        <a> {{ loggedIn[1] }} </a>
+                        {% endfor %}
+                    </div>
+
+                    <div id="icons">
+                        <div class="icon">
+                            <img src="./" alt="">
+                        </div>
+                         
+                        <div class="icon">
+                            <img src="./" alt="">
+                        </div>
+
+                        <div class="icon">
+                            <img src="./" alt="">
+                        </div>
+                             
+                     </div>
+                </div>
+                
+            </div>
+
+        </div>
+{% endblock %}
+
+{% block content %}
+
+            <div id="messages">
+                {% for m in messages %}
+                <img src="../static/assets/azProfile.png" alt="">
+                
+                <div id="column-message">
+                    <div id="name-date-message">
+                        {% for loggedIns in loggedIn %}
+                        <a> {{ loggedIn[1] }} </a>
+                        {% endfor %}
+                        <a> DD/MM/YYYY</a>
+                    </div>
+                    <div id="message-sent">
+                        <li>{{ m[1] }} - {{ m[2] }}</li>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+           <div id="send-message">
+               <img src="../static/assets/plus-256x256.png" alt="">
+               <input type="text" id="message" placeholder="Type Message">
+               <button type="submit" id="sendMessageButton">></button>
+               <!--<img src="./" alt="">
+               <img src="./" alt="">
+               <img src="./" alt="">-->
+            </div>
+                {% endblock %}

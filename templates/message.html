@@ -1,19 +1,122 @@
 {% extends "layout.html" %}
 
+{% block title %}
+    Message
+{% endblock %}
+
 {% block main %}
+
+
+        <div id="middle-box">
+            <div id="search-convo">
+                <form action="/" method="GET">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Search For a Public Room"></input>
+                    </div>
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+
+            <div id="direct-messages">
+                <a> Chatrooms</a>
+                <a href="/create-room"> + </a>
+            </div>
+            <br>
+            <div id="Conversations">
+                <ul>
+                    {% for joinedChat in joinedChats %}
+                        <li><a href="/room/{{ joinedChat[0] }}">{{ joinedChat[1] }} - {{ joinedChat[2] }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div id="status">
+                <div class="content-status">
+                    <img src="../static/assets/azProfile.png" alt="ProfilePhoto">
+
+                    <div id="name-id">
+                        <a> Az </a>
+                    </div>
+
+                    <div id="icons">
+                        <div class="icon">
+                            <img src="./" alt="">
+                        </div>
+                         
+                        <div class="icon">
+                            <img src="./" alt="">
+                        </div>
+
+                        <div class="icon">
+                            <img src="./" alt="">
+                        </div>
+                             
+                     </div>
+                </div>
+                
+            </div>
+
+        </div>
+{% endblock %}
+
+{% block content %}
     <style>
         #messages {
             height: 75vh;
             overflow-y: auto;
         }
     </style>
-        <!-- Creating form for sending messages-->
-        <form id="messageForm">
-            <div class="form-group">
-                <label for="message">Send Message</label>
-                <textarea class="form-control" id="message" row="3"></textarea>
+    {% for chat in chatName %}
+    <h1>Welcome to {{ chat[0] }}</h1>
+    {% endfor %}
+    <div class="row">
+        <div class="col-9">
+            {% if private == True %}
+                <form method="POST" action="/room/{{ room_id }}">
+                    <label for="invite">Invite People to join your private room (seperate by a single comma (,))</label>
+                    <textarea class="form-control" id="invite" name="invite" row="3"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            {% endif %}
+            <br>
+            <div class="container" id="messages">
+                {% for m in messages %}
+                <div id="column-message">
+                    <div id="name-date-message">
+                        <a> {{ m[1] }} </a>
+                        <a> {{ m[4] }}</a>
+                    </div>
+                    <div id="message-sent">
+                        <p1>{{ m[2] }}</p1>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
-            <button type="submit" id="sendMessageButton">Send Message</button>
-        </form>
-        <script src="/static/message.js"></script>
+            <!-- <form id="messageForm">
+                <div class="form-group">
+                    <label for="message">Send Message</label>
+                    <textarea class="form-control" id="message" row="3"></textarea>
+                </div>
+                <button type="submit" id="sendMessageButton">Send Message</button>
+            </form> -->
+            
+        </div>
+        <div class="col-3" id="users">
+            <h1>Users</h1>
+            {% for user in users %}
+                <span>{{ user }} <span id="{{ user }}" style="color: gray;">offline</span> </span> <br>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="send-message">
+        <img src="../static/assets/plus-256x256.png" alt="">
+        <input type="text" class="form-control" id="message" placeholder="Type Message">
+        <button type="submit" id="sendMessageButton">></button>
+        <!--<img src="./" alt="">
+        <img src="./" alt="">
+        <img src="./" alt="">-->
+     </div>
+    <script src="/static/message.js"></script>
+    
 {% endblock %}

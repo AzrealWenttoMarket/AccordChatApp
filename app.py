@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from flask_socketio import SocketIO, emit
 from werkzeug.security import check_password_hash, generate_password_hash
 from helper import *
-from termcolor import colored
+#from termcolor import colored
 #importing SQLITE3 for database
 import sqlite3
 
